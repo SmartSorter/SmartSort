@@ -5,13 +5,14 @@ from app.schemas.alert import AlertCreate
 
 THRESHOLD_FILL_LEVEL=90 
 
-def check_fill_level (db: Session, container_id: int, fill_level: int):
-    if fill_level>THRESHOLD_FILL_LEVEL:
-
-        alert_in=AlertCreate (container_id=container_id,
-        message=f"Critical Fill Level: {fill_level }%")
-        return alert_repo.create_alert (db, alert_in)
-    return None 
+def check_fill_level(db: Session, container_id: int, fill_level: int):
+    if fill_level > THRESHOLD_FILL_LEVEL:
+        alert_in = AlertCreate(
+            container_id=container_id,
+            message=f"Critical Fill Level: {fill_level}%"
+        )
+        return alert_repo.create_alert(db, alert_in)
+    return None
 
 def generate_optimization_route (db: Session):
 
