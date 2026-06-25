@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.database import engine
+from fastapi.middleware.cors import CORSMiddleware
 from app.models import Base
 from app.routers import waste_types, devices, containers, users, alerts, routes, sensor_data, auth, analytics
 
