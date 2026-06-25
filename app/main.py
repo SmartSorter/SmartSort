@@ -9,6 +9,13 @@ app = FastAPI(
     version="1.0.0"
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],              
+    allow_credentials=True,           
+    allow_methods=["*"],             
+    allow_headers=["*"],              
+)
 @app.on_event("startup")
 def startup():
     Base.metadata.create_all(bind=engine)
